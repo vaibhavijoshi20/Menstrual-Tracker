@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menstrual Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='period.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .navbar {
+            position: fixed; /* Make the navbar position fixed */
+            top: 0;
+            right: 0; /* Place it at the right corner */
+            width: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between; /* Arrange links horizontally without spacing */
+            align-items: center;
+            padding: 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 60px 20px; /* Increase the top and bottom padding to increase vertical height */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow to the container */
+            text-align: center; /* Center the content */
+            margin-top: 10%; /* Adjust as needed to center the form vertically */
+            background: linear-gradient(to bottom, #d3d3d3, #f0f0f0, #d3d3d3); /* Mixed color background with more grey and a subtle amount of pink */
+        }
+        h1 {
+            color: #000;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #000;
+        }
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+        input[type="date"]:focus,
+        input[type="number"]:focus {
+            border: 2px solid #ff1493;
+        }
+        input[type="submit"] {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Periods</a>
+        <a href="/ovulation">Ovulation</a>
+        <a href="/mood">Mood</a>
+    </div>
+    <div class="container">
+        <h1>Menstrual Tracker</h1>
+        <form action="/" method="post">
+            <label for="last_period_date">Last Period Date:</label>
+            <input type="date" id="last_period_date" name="last_period_date" required>
+            <label for="cycle_length">Cycle Length(in days):</label>
+            <input type="number" id="cycle_length" name="cycle_length" required>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
